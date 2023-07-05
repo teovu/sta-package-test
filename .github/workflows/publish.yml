@@ -31,7 +31,6 @@ jobs:
           publish: pnpm run build
           setupGitUser: true
           createGithubRelease: true
-
         env:
           PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
           GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
