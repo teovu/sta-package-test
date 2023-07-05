@@ -1,4 +1,4 @@
-name: Build and Publish
+name: Publish
 on:
   push:
     branches:
@@ -7,13 +7,10 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
       - uses: actions/checkout@v3
-
-      - name: Set up Node.js
       - uses: pnpm/action-setup@v2
         with:
           version: 7
@@ -22,7 +19,6 @@ jobs:
           node-version: 16.x
           cache: "pnpm"
 
-      - name: Install dependencies
       - run: pnpm install --no-frozen-lockfile
       - name: Create Pull Request or Publish
         id: changesets
