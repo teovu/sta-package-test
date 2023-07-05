@@ -29,5 +29,3 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: pnpm run build
-          setupGitUser: true
-          createGithubRelease: true
